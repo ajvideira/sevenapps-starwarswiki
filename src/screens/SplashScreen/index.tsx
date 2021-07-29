@@ -1,17 +1,28 @@
 import React from 'react';
-import { StatusBar } from 'expo-status-bar';
-
 import { Logo } from '../../components/atoms/Logo';
 import { Title } from '../../components/atoms/Title';
+import { Container } from '../../components/atoms/Container';
+import { NavigationProp } from '@react-navigation/native';
+import { useEffect } from 'react';
 
-import { Container } from './styles';
+type SplashScreenProps = {
+  navigation: NavigationProp<any, any>;
+};
 
-export default function SplashScreen() {
+const SplashScreen: React.FC<SplashScreenProps> = ({ navigation }) => {
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      navigation.navigate('Home');
+    }, 1000);
+    return () => clearTimeout(timeout);
+  }, [navigation]);
+
   return (
-    <Container>
+    <Container justify="center" align="center">
       <Logo />
       <Title>StarWars - Wiki</Title>
-      <StatusBar style="auto" />
     </Container>
   );
-}
+};
+
+export default SplashScreen;
