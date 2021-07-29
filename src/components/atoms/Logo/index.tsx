@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 
-import logoImg from '../../../../assets/LogoEmpire.png';
-import { LogoImage } from './styles';
+import logoImg from "../../../../assets/LogoEmpire.png";
+import { LogoImage } from "./styles";
 
 type LogoProps = {};
 

@@ -1,6 +1,6 @@
-import React from 'react';
-import { Text } from 'react-native';
-import { TitleText } from './styles';
+import React from "react";
+import { Text } from "react-native";
+import { TitleText } from "./styles";
 
 type TitleProps = {
   children: string;
