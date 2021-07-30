@@ -1,27 +1,33 @@
 import React from 'react';
 import { FlatList } from 'react-native';
+import { Item } from '../../../models';
+import { theme } from '../../../styles/theme';
+import { Title } from '../../atoms/Title';
 import Card from '../../molecules/Card';
+import { ListContainer } from './styles';
 
-const FAKE_DATA = [
-  {
-    id: 0,
-    image_url:
-      'https://sm.ign.com/ign_br/screenshot/default/darth-vader_5yvm.jpg',
-  },
-  {
-    id: 1,
-    image_url:
-      'https://static.wikia.nocookie.net/starwars/images/d/d6/Yoda_SWSB.png/revision/latest?cb=20150206140125',
-  },
-];
+type CardListProps = {
+  data: Item[];
+  title: string;
+};
 
-export const CardList: React.FC = () => {
+export const CardList: React.FC<CardListProps> = ({ data, title }) => {
   return (
-    <FlatList
-      horizontal
-      data={FAKE_DATA}
-      renderItem={({ item }) => <Card item={item} />}
-      keyExtractor={(item) => item.id.toString()}
-    />
+    <ListContainer>
+      <Title font="black" size={18} marginLeft={24}>
+        {title}
+      </Title>
+      <FlatList
+        horizontal
+        data={data}
+        renderItem={({ item }) => <Card item={item} />}
+        keyExtractor={(item) => item.id.toString()}
+        contentContainerStyle={{
+          paddingLeft: theme.metrics.px(24),
+          paddingTop: theme.metrics.px(12),
+          paddingBottom: theme.metrics.px(24),
+        }}
+      />
+    </ListContainer>
   );
 };

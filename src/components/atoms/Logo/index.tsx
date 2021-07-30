@@ -1,10 +1,17 @@
-import React from "react";
+import React from 'react';
 
-import logoImg from "../../../../assets/LogoEmpire.png";
-import { LogoImage } from "./styles";
+import logoImg from '../../../../assets/LogoEmpire.png';
+import { LogoImage } from './styles';
 
-type LogoProps = {};
+const sizes: { [key: string]: number } = {
+  small: 28,
+  large: 64,
+};
 
-export const Logo: React.FC<LogoProps> = () => {
-  return <LogoImage source={logoImg} />;
+type LogoProps = {
+  size?: string;
+};
+
+export const Logo: React.FC<LogoProps> = ({ size }) => {
+  return <LogoImage source={logoImg} size={sizes[size || 'large']} />;
 };

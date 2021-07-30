@@ -1,19 +1,38 @@
-import styled from 'styled-components/native';
+import React, { CSSProperties } from 'react';
+import styled, { css } from 'styled-components/native';
+import { theme } from '../../../styles/theme';
 
 type ContainerProps = {
   dir?: string;
-  justify?: string;
-  align?: string;
-  bg?: string;
-  w?: number;
-  h?: number;
+  justify?: CSSProperties['justifyContent'];
+  align?: CSSProperties['alignItems'];
+  background?: keyof typeof theme.colors;
+  width?: number;
+  height?: number;
 };
 
 export const Container = styled.View<ContainerProps>`
-  flex-direction: ${({ dir }) => dir || 'column'};
-  justify-content: ${({ justify }) => justify || 'flex-start'};
-  align-items: ${({ align }) => align || 'flex-start'};
-  background-color: ${({ bg, theme }) => theme.colors[bg || 'dark']};
-  width: ${({ w, theme }) => (w ? `${theme.metrics.px(w)}px` : '100%')};
-  height: ${({ h, theme }) => (h ? `${theme.metrics.px(h)}px` : '100%')};
+  ${({ dir, justify, align, background, width, height }) => css`
+    flex-direction: ${dir || 'column'};
+    justify-content: ${justify || 'flex-start'};
+    align-items: ${align || 'flex-start'};
+    background-color: ${theme.colors[background || 'dark']};
+    width: ${width ? `${theme.metrics.px(width)}px` : '100%'};
+    height: ${height ? `${theme.metrics.px(height)}px` : '100%'};
+  `}
+`;
+
+type ScreenScrollContainerProps = {
+  dir?: string;
+  justify?: CSSProperties['justifyContent'];
+  align?: CSSProperties['alignItems'];
+  background?: keyof typeof theme.colors;
+  width?: number;
+  height?: number;
+};
+
+export const ScreenScrollContainer = styled.ScrollView<ScreenScrollContainerProps>`
+  ${({ background, theme }) => css`
+    background-color: ${theme.colors[background || 'dark']};
+  `}
 `;

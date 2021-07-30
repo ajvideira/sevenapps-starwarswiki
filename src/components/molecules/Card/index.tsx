@@ -1,23 +1,24 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
+import { Item } from '../../../models';
+import { useDataStore } from '../../../services/stores/dataStore';
 import { CardContainer, CardImage } from './styles';
 
 type CardProps = {
-  item: Character | Film;
-};
-
-type Film = {
-  id: number;
-  image_url: string;
-};
-
-type Character = {
-  id: number;
-  image_url: string;
+  item: Item;
 };
 
 const Card: React.FC<CardProps> = ({ item }) => {
+  const navigation = useNavigation();
+  const { setSelectedData } = useDataStore();
+
+  function handlePressCard() {
+    setSelectedData(item);
+    navigation.navigate('Detail');
+  }
+
   return (
-    <CardContainer>
+    <CardContainer onPress={handlePressCard}>
       <CardImage source={{ uri: item.image_url }} />
     </CardContainer>
   );
