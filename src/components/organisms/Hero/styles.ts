@@ -1,4 +1,5 @@
 import { LinearGradient } from 'expo-linear-gradient';
+import { CSSProperties } from 'react';
 import styled from 'styled-components/native';
 
 export const HeroContainer = styled.View`
@@ -26,4 +27,14 @@ export const ButtonsView = styled.View`
   align-items: baseline;
   justify-content: space-between;
   margin-top: ${({ theme }) => theme.metrics.px(12)}px;
+`;
+
+type ButtonItemViewProps = {
+  align?: CSSProperties['alignItems'];
+};
+
+export const ButtonItemView = styled.View<ButtonItemViewProps>`
+  flex: 1;
+  flex-direction: column;
+  align-items: ${({ align }) => align || 'center'};
 `;

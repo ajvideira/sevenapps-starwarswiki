@@ -20,7 +20,9 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ navigation }) => {
   return (
     <Container justify="center" align="center">
       <Logo />
-      <Title>StarWars - Wiki</Title>
+      <Title font="bold" size={24} marginTop={12}>
+        StarWars - Wiki
+      </Title>
     </Container>
   );
 };

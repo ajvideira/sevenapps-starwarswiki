@@ -9,16 +9,19 @@ type ContainerProps = {
   background?: keyof typeof theme.colors;
   width?: number;
   height?: number;
+  withPadding?: boolean;
 };
 
 export const Container = styled.View<ContainerProps>`
-  ${({ dir, justify, align, background, width, height }) => css`
+  ${({ dir, justify, align, background, width, height, withPadding }) => css`
     flex-direction: ${dir || 'column'};
     justify-content: ${justify || 'flex-start'};
     align-items: ${align || 'flex-start'};
     background-color: ${theme.colors[background || 'dark']};
     width: ${width ? `${theme.metrics.px(width)}px` : '100%'};
     height: ${height ? `${theme.metrics.px(height)}px` : '100%'};
+    padding-horizontal: ${theme.metrics.px(withPadding ? 24 : 0)}px;
+    padding-vertical: ${theme.metrics.px(withPadding ? 56 : 0)}px;
   `}
 `;
 

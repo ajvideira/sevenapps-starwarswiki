@@ -30,8 +30,27 @@ export const useGetData = () => {
     }
   };
 
+  const getSearchResult = async (query: string): Promise<Item[] | Error> => {
+    try {
+      const { data } = await api.get('/search', {
+        params: {
+          query,
+        },
+      });
+      return data.map((item: any) => {
+        return {
+          ...item,
+          type: item.trailer_url ? ItemType.FILM : ItemType.CHARACTER,
+        };
+      }) as Item[];
+    } catch (error) {
+      return error;
+    }
+  };
+
   return {
     getCharacters,
     getFilms,
+    getSearchResult,
   };
 };

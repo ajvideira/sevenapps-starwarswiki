@@ -8,10 +8,12 @@ import { useFavorites } from '../../../services/hooks/useFavorites';
 import { colors } from '../../../styles/colors';
 import { Logo } from '../../atoms/Logo';
 import { Title } from '../../atoms/Title';
+import { FavoriteStateModal } from '../../molecules/FavoriteStateModal';
 import { IconButton } from '../../molecules/IconButton';
 import { PlayButton } from '../../molecules/PlayButton';
 import { Tag } from '../../molecules/Tag';
 import {
+  ButtonItemView,
   ButtonsView,
   HeroContainer,
   HeroGradient,
@@ -26,6 +28,7 @@ type HeroProps = {
 export const Hero: React.FC<HeroProps> = ({ item, onDetail = false }) => {
   const { addFavorite, removeFavorite, getFavorites } = useFavorites();
   const [isFavorite, setIsFavorite] = useState(false);
+  const [showFavoriteStateModal, setShowFavoriteStateModal] = useState('');
   const navigation = useNavigation();
 
   const verifyFavorite = async () => {
@@ -49,14 +52,24 @@ export const Hero: React.FC<HeroProps> = ({ item, onDetail = false }) => {
     return unsubscribe;
   });
 
+  const closeFavoriteModal = () => {
+    setTimeout(() => {
+      setShowFavoriteStateModal('');
+    }, 2000);
+  };
+
   async function handleAddFavorite() {
     await addFavorite(item);
     setIsFavorite(true);
+    setShowFavoriteStateModal('added');
+    closeFavoriteModal();
   }
 
   async function handleRemoveFavorite() {
     await removeFavorite(item);
     setIsFavorite(false);
+    setShowFavoriteStateModal('removed');
+    closeFavoriteModal();
   }
 
   return (
@@ -81,7 +94,9 @@ export const Hero: React.FC<HeroProps> = ({ item, onDetail = false }) => {
               }
               label={isFavorite ? 'Rem. Favoritos' : 'Add. Favoritos'}
             />
+
             <PlayButton />
+
             {!onDetail && (
               <IconButton
                 iconName="information-circle-outline"
@@ -91,6 +106,12 @@ export const Hero: React.FC<HeroProps> = ({ item, onDetail = false }) => {
           </ButtonsView>
         </HeroGradient>
       </HeroImageBackground>
+
+      <FavoriteStateModal
+        visible={!!showFavoriteStateModal}
+        onClose={() => setShowFavoriteStateModal('')}
+        type={showFavoriteStateModal === 'added' ? 'added' : 'removed'}
+      />
     </HeroContainer>
   );
 };

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import 'react-native-gesture-handler';
 import AppLoading from 'expo-app-loading';
 import {
@@ -11,6 +11,7 @@ import {
 import { ThemeProvider } from 'styled-components';
 import { theme } from './src/styles/theme';
 import Routes from './src/routes';
+import { LogBox, StatusBar } from 'react-native';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -20,11 +21,18 @@ export default function App() {
     SourceSansPro_900Black,
   });
 
+  useEffect(() => {
+    LogBox.ignoreLogs([
+      'VirtualizedLists should never be nested inside plain ScrollViews with the same orientation - use another VirtualizedList-backed container instead.',
+    ]);
+  }, []);
+
   if (!fontsLoaded) {
     return <AppLoading />;
   } else {
     return (
       <ThemeProvider theme={theme}>
+        <StatusBar translucent />
         <Routes />
       </ThemeProvider>
     );

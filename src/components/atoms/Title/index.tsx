@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { CSSProperties } from 'react';
 import { Text } from 'react-native';
 import { theme } from '../../../styles/theme';
 import { TitleText } from './styles';
@@ -13,6 +13,7 @@ type TitleProps = {
   marginLeft?: number;
   size?: number;
   lineHeight?: number;
+  align?: CSSProperties['textAlign'];
 };
 
 export const Title: React.FC<TitleProps> = ({ children, ...props }) => {
