@@ -12,6 +12,7 @@ type TitleProps = {
   marginRight?: number;
   marginLeft?: number;
   size?: number;
+  lineHeight?: number;
 };
 
 export const Title: React.FC<TitleProps> = ({ children, ...props }) => {

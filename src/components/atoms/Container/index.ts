@@ -29,9 +29,19 @@ type ScreenScrollContainerProps = {
   background?: keyof typeof theme.colors;
   width?: number;
   height?: number;
+  withPadding?: boolean;
 };
 
-export const ScreenScrollContainer = styled.ScrollView<ScreenScrollContainerProps>`
+export const ScreenScrollContainer = styled.ScrollView.attrs<ScreenScrollContainerProps>(
+  ({ withPadding, theme }) => ({
+    contentContainerStyle: withPadding
+      ? {
+          paddingHorizontal: theme.metrics.px(24),
+          paddingVertical: theme.metrics.px(56),
+        }
+      : {},
+  })
+)<ScreenScrollContainerProps>`
   ${({ background, theme }) => css`
     background-color: ${theme.colors[background || 'dark']};
   `}

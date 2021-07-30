@@ -14,7 +14,8 @@ export const TagContainer = styled.View<TagContainerProps>`
     background-color: ${theme.colors.red};
     height: ${theme.metrics.px(24)}px;
     border-radius: ${theme.metrics.px(24)}px;
-    max-width: ${theme.metrics.px(88)}px;
+    padding-horizontal: ${theme.metrics.px(10)}px;
+    max-width: ${theme.metrics.px(100)}px;
     margin-top: ${theme.metrics.px(marginTop || 0)}px;
     margin-bottom: ${theme.metrics.px(marginBottom || 0)}px;
     margin-right: ${theme.metrics.px(marginRight || 0)}px;

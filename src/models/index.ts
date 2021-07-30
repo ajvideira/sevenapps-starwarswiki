@@ -4,6 +4,7 @@ export type Item = {
   subtitle: string;
   description: string;
   image_url: string;
+  trailer_url?: string;
   type: ItemType;
 };
 
