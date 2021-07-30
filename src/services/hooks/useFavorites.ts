@@ -33,7 +33,6 @@ export const useFavorites = () => {
           !(data.id === favorite.id && data.type === favorite.type)
       );
       await AsyncStorage.setItem(DB_KEY, JSON.stringify(newDbData));
-      console.log(newDbData.length);
       return newDbData;
     } catch (error) {
       return error;

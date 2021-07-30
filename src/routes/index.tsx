@@ -3,7 +3,6 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from '../screens/Home';
-import SplashScreen from '../screens/SplashScreen';
 import Detail from '../screens/Detail';
 import Favorites from '../screens/Favorites';
 import Search from '../screens/Search';
@@ -36,7 +35,6 @@ const Routes = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator headerMode="none">
-        <Stack.Screen name="Splash" component={SplashScreen} />
         <Stack.Screen name="Home" component={BottomRoute} />
         <Stack.Screen name="Detail" component={Detail} />
       </Stack.Navigator>
