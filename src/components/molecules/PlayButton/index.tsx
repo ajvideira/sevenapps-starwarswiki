@@ -12,10 +12,10 @@ export const PlayButton: React.FC<PlayButtonProps> = ({ onPress }) => (
   <ButtonContainer>
     <Ionicons
       name="play"
-      size={theme.metrics.px(12)}
+      size={theme.metrics.px(16)}
       color={theme.colors.black}
     />
-    <Title font="bold" size={14}>
+    <Title font="bold" size={14} color="black">
       Play
     </Title>
   </ButtonContainer>

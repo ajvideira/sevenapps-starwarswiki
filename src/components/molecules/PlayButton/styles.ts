@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components/native';
 
 export const ButtonContainer = styled.TouchableOpacity`
   ${({ theme }) => css`
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     height: ${theme.metrics.px(36)}px;
