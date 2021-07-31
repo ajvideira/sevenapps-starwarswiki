@@ -6,7 +6,7 @@ import { useTheme } from 'styled-components';
 import { Item, ItemType } from '~/models';
 import { useFavorites } from '~/services/hooks/useFavorites';
 import { useDataStore } from '~/services/stores/dataStore';
-import { Logo, Title } from '~/components/atoms';
+import { Logo, Text } from '~/components/atoms';
 import {
   FavoriteStateModal,
   IconButton,
@@ -80,6 +80,11 @@ export const Hero: React.FC<HeroProps> = ({ item, onDetail = false }) => {
     navigation.navigate('Watch');
   }
 
+  function handleKnowMore() {
+    setSelectedData(item);
+    navigation.navigate('Detail');
+  }
+
   return (
     <HeroContainer>
       <HeroImageBackground
@@ -92,12 +97,12 @@ export const Hero: React.FC<HeroProps> = ({ item, onDetail = false }) => {
         >
           {!onDetail && <Logo size="small" />}
           <Tag marginTop={onDetail ? 224 : 200}>{item.type}</Tag>
-          <Title font="bold" size={28} marginTop={8}>
+          <Text font="bold" size={28} marginTop={8}>
             {item.title}
-          </Title>
-          <Title size={18} marginTop={8}>
+          </Text>
+          <Text size={18} marginTop={8}>
             {item.subtitle}
-          </Title>
+          </Text>
           <ButtonsView>
             <ButtonItemView align="flex-start">
               <IconButton
@@ -118,6 +123,7 @@ export const Hero: React.FC<HeroProps> = ({ item, onDetail = false }) => {
                 <IconButton
                   iconName="information-circle-outline"
                   label="Saiba mais"
+                  onPress={handleKnowMore}
                 />
               )}
             </ButtonItemView>

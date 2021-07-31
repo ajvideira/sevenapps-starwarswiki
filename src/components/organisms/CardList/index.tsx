@@ -3,7 +3,7 @@ import { FlatList } from 'react-native';
 import { useTheme } from 'styled-components';
 
 import { Item } from '~/models';
-import { Title } from '~/components/atoms';
+import { Text } from '~/components/atoms';
 import { Card } from '~/components/molecules';
 import { ListContainer } from './styles';
 
@@ -17,9 +17,9 @@ export const CardList: React.FC<CardListProps> = ({ data, title }) => {
 
   return (
     <ListContainer>
-      <Title font="black" size={18} marginLeft={24}>
+      <Text font="black" size={18} marginLeft={24}>
         {title}
-      </Title>
+      </Text>
       <FlatList
         horizontal
         data={data}

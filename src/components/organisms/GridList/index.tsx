@@ -2,7 +2,7 @@ import React from 'react';
 import { FlatList } from 'react-native';
 
 import { Item } from '~/models';
-import { Container, Title } from '~/components/atoms';
+import { Container, Text } from '~/components/atoms';
 import { Card } from '~/components/molecules';
 import { NoDataImage, SeparatorView } from './styles';
 import emptyResultSearchImage from '~/assets/empty-result-search.png';
@@ -35,11 +35,11 @@ export const GridList: React.FC<GridListProps> = ({
               type === 'favorites' ? emptyFavorites : emptyResultSearchImage
             }
           />
-          <Title font={'semiBold'} size={14} marginTop={12}>
+          <Text font={'semiBold'} size={14} marginTop={12}>
             {`Nenhum ${
               type === 'favorites' ? 'favorito' : 'resultado'
             } encontrado`}
-          </Title>
+          </Text>
         </Container>
       )}
     />

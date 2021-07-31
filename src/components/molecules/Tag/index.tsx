@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Title } from '~/components/atoms';
+import { Text } from '~/components/atoms';
 import { TagContainer } from './styles';
 
 type TagProps = {
@@ -13,8 +13,8 @@ type TagProps = {
 
 export const Tag: React.FC<TagProps> = ({ children, ...props }) => (
   <TagContainer {...props}>
-    <Title font="bold" size={14}>
+    <Text font="bold" size={14}>
       {children}
-    </Title>
+    </Text>
   </TagContainer>
 );

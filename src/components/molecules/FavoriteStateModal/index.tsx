@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Title } from '~/components/atoms';
+import { Text } from '~/components/atoms';
 import {
   FavoriteImage,
   Modal,
@@ -28,14 +28,14 @@ export const FavoriteStateModal: React.FC<FavoriteStateModalProps> = ({
           <FavoriteImage
             source={type === 'added' ? favoriteAdded : favoriteRemoved}
           />
-          <Title
+          <Text
             align="center"
             marginTop={24}
             size={28}
             font="bold"
           >{`Favorito ${
             type === 'added' ? 'adicionado' : 'removido'
-          } com sucesso!`}</Title>
+          } com sucesso!`}</Text>
         </ModalContentContainer>
       </ModalBackgroundContainer>
     </Modal>

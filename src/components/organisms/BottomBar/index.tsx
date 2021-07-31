@@ -3,7 +3,7 @@ import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
 import { useTheme } from 'styled-components';
 
-import { Title } from '~/components/atoms';
+import { Text } from '~/components/atoms';
 import { BarItem, BottomBarContainer } from './styles';
 
 const routeIcons: {
@@ -73,13 +73,9 @@ export const BottomBar: React.FC<BottomTabBarProps> = ({
               color={isFocused ? theme.colors.red : theme.colors.white}
               size={theme.metrics.px(20)}
             />
-            <Title
-              font="semiBold"
-              size={10}
-              color={isFocused ? 'red' : 'white'}
-            >
+            <Text font="semiBold" size={10} color={isFocused ? 'red' : 'white'}>
               {label}
-            </Title>
+            </Text>
           </BarItem>
         );
       })}

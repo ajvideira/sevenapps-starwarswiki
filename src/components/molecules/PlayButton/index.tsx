@@ -2,7 +2,7 @@ import React from 'react';
 import { Ionicons } from '@expo/vector-icons';
 import { useTheme } from 'styled-components';
 
-import { Title } from '~/components/atoms';
+import { Text } from '~/components/atoms';
 import { ButtonContainer } from './styles';
 
 type PlayButtonProps = {
@@ -19,9 +19,9 @@ export const PlayButton: React.FC<PlayButtonProps> = ({ onPress }) => {
         size={theme.metrics.px(16)}
         color={theme.colors.black}
       />
-      <Title marginTop={2} marginLeft={4} font="bold" size={14} color="black">
+      <Text marginTop={2} marginLeft={4} font="bold" size={14} color="black">
         Assistir
-      </Title>
+      </Text>
     </ButtonContainer>
   );
 };

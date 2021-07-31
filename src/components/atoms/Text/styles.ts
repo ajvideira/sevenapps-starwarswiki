@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components/native';
 
 import { theme } from '~/styles/theme';
 
-type TitleTextProps = {
+type TextTextProps = {
   color?: keyof typeof theme.colors;
   size?: number;
   marginTop?: number;
@@ -15,7 +15,7 @@ type TitleTextProps = {
   align?: CSSProperties['textAlign'];
 };
 
-export const TitleText = styled.Text<TitleTextProps>`
+export const TextText = styled.Text<TextTextProps>`
   ${({
     color,
     size,

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Alert } from 'react-native';
 import { NavigationProp } from '@react-navigation/native';
 
-import { GridList, Loader, ScreenScrollContainer, Title } from '~/components';
+import { GridList, Loader, ScreenScrollContainer, Text } from '~/components';
 import { Item } from '~/models';
 import { useFavorites } from '~/services/hooks/useFavorites';
 
@@ -40,9 +40,9 @@ const Favorites: React.FC<FavoritesProps> = ({ navigation }) => {
 
   return (
     <ScreenScrollContainer withPadding>
-      <Title font="bold" size={28} marginBottom={24}>
+      <Text font="bold" size={28} marginBottom={24}>
         Favoritos
-      </Title>
+      </Text>
       <GridList data={favorites} type="favorites" loading={loading} />
     </ScreenScrollContainer>
   );

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Alert } from 'react-native';
 import { NavigationProp } from '@react-navigation/native';
 
-import { GridList, Input, ScreenScrollContainer, Title } from '~/components';
+import { GridList, Input, ScreenScrollContainer, Text } from '~/components';
 import { Item } from '~/models';
 import { useGetData } from '~/services/hooks/useGetData';
 
@@ -35,9 +35,9 @@ const Search: React.FC<SearchProps> = ({ navigation }) => {
 
   return (
     <ScreenScrollContainer withPadding>
-      <Title font="bold" size={28} marginBottom={24}>
+      <Text font="bold" size={28} marginBottom={24}>
         Pesquisar
-      </Title>
+      </Text>
       <Input
         placeholder="Título ou subtítulo do filme ou personagem"
         value={query}

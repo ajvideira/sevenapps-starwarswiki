@@ -1,9 +1,9 @@
 import React, { CSSProperties } from 'react';
 
 import { theme } from '~/styles/theme';
-import { TitleText } from './styles';
+import { TextText } from './styles';
 
-type TitleProps = {
+type TextProps = {
   children: string;
   color?: keyof typeof theme.colors;
   font?: keyof typeof theme.fonts;
@@ -16,6 +16,6 @@ type TitleProps = {
   align?: CSSProperties['textAlign'];
 };
 
-export const Title: React.FC<TitleProps> = ({ children, ...props }) => {
-  return <TitleText {...props}>{children}</TitleText>;
+export const Text: React.FC<TextProps> = ({ children, ...props }) => {
+  return <TextText {...props}>{children}</TextText>;
 };

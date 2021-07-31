@@ -3,7 +3,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useTheme } from 'styled-components';
 
 import { ButtonContainer } from './styles';
-import { Title } from '~/components/atoms';
+import { Text } from '~/components/atoms';
 
 type IconButtonProps = {
   iconName: React.ComponentProps<typeof Ionicons>['name'];
@@ -25,9 +25,9 @@ export const IconButton: React.FC<IconButtonProps> = ({
         size={theme.metrics.px(24)}
         color={theme.colors.white}
       />
-      <Title font="semiBold" size={10} marginTop={6}>
+      <Text font="semiBold" size={10} marginTop={6}>
         {label}
-      </Title>
+      </Text>
     </ButtonContainer>
   );
 };
