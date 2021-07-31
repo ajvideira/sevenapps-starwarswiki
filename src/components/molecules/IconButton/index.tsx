@@ -1,10 +1,9 @@
 import React from 'react';
-import { TouchableOpacityProps } from 'react-native';
-import { ButtonContainer } from './styles';
-
 import { Ionicons } from '@expo/vector-icons';
-import { Title } from '../../atoms/Title';
-import { theme } from '../../../styles/theme';
+import { useTheme } from 'styled-components';
+
+import { ButtonContainer } from './styles';
+import { Title } from '~/components/atoms';
 
 type IconButtonProps = {
   iconName: React.ComponentProps<typeof Ionicons>['name'];
@@ -17,6 +16,8 @@ export const IconButton: React.FC<IconButtonProps> = ({
   label,
   onPress,
 }) => {
+  const theme = useTheme();
+
   return (
     <ButtonContainer onPress={onPress}>
       <Ionicons

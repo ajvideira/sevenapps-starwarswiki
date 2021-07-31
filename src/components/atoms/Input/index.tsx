@@ -1,5 +1,6 @@
 import React from 'react';
 import { TextInputProps } from 'react-native';
+
 import { InputContainer, TextInputField } from './styles';
 
 type InputProps = TextInputProps & {

@@ -1,6 +1,5 @@
-import { Item } from '../../models';
-
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Item } from '../../models';
 
 const DB_KEY = '@StarWarsWiki:favorites';
 

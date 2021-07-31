@@ -1,20 +1,10 @@
-import { NavigationProp, useFocusEffect } from '@react-navigation/native';
-import React from 'react';
-import { useEffect } from 'react';
-import { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Alert } from 'react-native';
-import {
-  Container,
-  ScreenScrollContainer,
-} from '../../components/atoms/Container';
-import { GoBack } from '../../components/atoms/GoBack';
-import { Loader } from '../../components/atoms/Loader';
-import { Title } from '../../components/atoms/Title';
-import { GridList } from '../../components/organisms/GridList';
-import { Hero } from '../../components/organisms/Hero';
-import { Item } from '../../models';
-import { useFavorites } from '../../services/hooks/useFavorites';
-import { useDataStore } from '../../services/stores/dataStore';
+import { NavigationProp } from '@react-navigation/native';
+
+import { GridList, Loader, ScreenScrollContainer, Title } from '~/components';
+import { Item } from '~/models';
+import { useFavorites } from '~/services/hooks/useFavorites';
 
 type FavoritesProps = {
   navigation: NavigationProp<any, any>;
@@ -53,7 +43,7 @@ const Favorites: React.FC<FavoritesProps> = ({ navigation }) => {
       <Title font="bold" size={28} marginBottom={24}>
         Favoritos
       </Title>
-      <GridList data={favorites} type="favorites" />
+      <GridList data={favorites} type="favorites" loading={loading} />
     </ScreenScrollContainer>
   );
 };

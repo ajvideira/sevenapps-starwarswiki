@@ -1,4 +1,3 @@
-import { CSSProperties } from 'react';
 import styled, { css } from 'styled-components/native';
 
 export const Modal = styled.Modal``;

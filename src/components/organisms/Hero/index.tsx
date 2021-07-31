@@ -1,18 +1,18 @@
-import { useNavigation } from '@react-navigation/native';
-import React from 'react';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Alert } from 'react-native';
-import { Item, ItemType } from '../../../models';
-import { useFavorites } from '../../../services/hooks/useFavorites';
-import { useDataStore } from '../../../services/stores/dataStore';
-import { colors } from '../../../styles/colors';
-import { Logo } from '../../atoms/Logo';
-import { Title } from '../../atoms/Title';
-import { FavoriteStateModal } from '../../molecules/FavoriteStateModal';
-import { IconButton } from '../../molecules/IconButton';
-import { PlayButton } from '../../molecules/PlayButton';
-import { Tag } from '../../molecules/Tag';
+import { useNavigation } from '@react-navigation/native';
+import { useTheme } from 'styled-components';
+
+import { Item, ItemType } from '~/models';
+import { useFavorites } from '~/services/hooks/useFavorites';
+import { useDataStore } from '~/services/stores/dataStore';
+import { Logo, Title } from '~/components/atoms';
+import {
+  FavoriteStateModal,
+  IconButton,
+  PlayButton,
+  Tag,
+} from '~/components/molecules';
 import {
   ButtonItemView,
   ButtonsView,
@@ -32,6 +32,7 @@ export const Hero: React.FC<HeroProps> = ({ item, onDetail = false }) => {
   const [showFavoriteStateModal, setShowFavoriteStateModal] = useState('');
   const navigation = useNavigation();
   const { setSelectedData } = useDataStore();
+  const theme = useTheme();
 
   const verifyFavorite = async () => {
     const favorites = await getFavorites();
@@ -75,7 +76,6 @@ export const Hero: React.FC<HeroProps> = ({ item, onDetail = false }) => {
   }
 
   function handlePlayVideo() {
-    console.log('chegou aqui');
     setSelectedData(item);
     navigation.navigate('Watch');
   }
@@ -87,13 +87,17 @@ export const Hero: React.FC<HeroProps> = ({ item, onDetail = false }) => {
           uri: item.image_url,
         }}
       >
-        <HeroGradient colors={[colors.dark, 'transparent', colors.dark]}>
+        <HeroGradient
+          colors={[theme.colors.dark, 'transparent', theme.colors.dark]}
+        >
           {!onDetail && <Logo size="small" />}
           <Tag marginTop={onDetail ? 224 : 200}>{item.type}</Tag>
           <Title font="bold" size={28} marginTop={8}>
             {item.title}
           </Title>
-          <Title size={18}>{item.subtitle}</Title>
+          <Title size={18} marginTop={8}>
+            {item.subtitle}
+          </Title>
           <ButtonsView>
             <ButtonItemView align="flex-start">
               <IconButton

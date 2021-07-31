@@ -1,9 +1,7 @@
 import React from 'react';
-import { ScreenScrollContainer } from '../../components/atoms/Container';
-import { GoBack } from '../../components/atoms/GoBack';
-import { Title } from '../../components/atoms/Title';
-import { Hero } from '../../components/organisms/Hero';
-import { useDataStore } from '../../services/stores/dataStore';
+
+import { useDataStore } from '~/services/stores/dataStore';
+import { GoBack, Hero, ScreenScrollContainer, Title } from '~/components';
 
 const Detail: React.FC = () => {
   const { selectedData } = useDataStore();

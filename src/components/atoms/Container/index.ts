@@ -1,5 +1,6 @@
-import React, { CSSProperties } from 'react';
+import { CSSProperties } from 'react';
 import styled, { css } from 'styled-components/native';
+
 import { theme } from '../../../styles/theme';
 
 type ContainerProps = {

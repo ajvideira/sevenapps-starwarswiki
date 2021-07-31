@@ -1,14 +1,14 @@
 import React from 'react';
-import { Title } from '../../atoms/Title';
+
+import { Title } from '~/components/atoms';
 import {
   FavoriteImage,
   Modal,
   ModalBackgroundContainer,
   ModalContentContainer,
 } from './style';
-
-import favoriteAdded from '../../../../assets/favorite-added.png';
-import favoriteRemoved from '../../../../assets/favorite-removed.png';
+import favoriteAdded from '~/assets/favorite-added.png';
+import favoriteRemoved from '~/assets/favorite-removed.png';
 
 type FavoriteStateModalProps = {
   visible?: boolean;

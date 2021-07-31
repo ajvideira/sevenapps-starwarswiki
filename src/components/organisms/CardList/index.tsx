@@ -1,9 +1,10 @@
 import React from 'react';
 import { FlatList } from 'react-native';
-import { Item } from '../../../models';
-import { theme } from '../../../styles/theme';
-import { Title } from '../../atoms/Title';
-import Card from '../../molecules/Card';
+import { useTheme } from 'styled-components';
+
+import { Item } from '~/models';
+import { Title } from '~/components/atoms';
+import { Card } from '~/components/molecules';
 import { ListContainer } from './styles';
 
 type CardListProps = {
@@ -12,6 +13,8 @@ type CardListProps = {
 };
 
 export const CardList: React.FC<CardListProps> = ({ data, title }) => {
+  const theme = useTheme();
+
   return (
     <ListContainer>
       <Title font="black" size={18} marginLeft={24}>

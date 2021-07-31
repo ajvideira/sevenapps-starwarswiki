@@ -1,18 +1,10 @@
-import { NavigationProp } from '@react-navigation/native';
 import React, { useEffect, useState } from 'react';
 import { Alert } from 'react-native';
-import { ScreenScrollContainer } from '../../components/atoms/Container';
-import { GoBack } from '../../components/atoms/GoBack';
-import { Input } from '../../components/atoms/Input';
-import { Loader } from '../../components/atoms/Loader';
-import { Title } from '../../components/atoms/Title';
-import { GridList } from '../../components/organisms/GridList';
-import { Hero } from '../../components/organisms/Hero';
-import { Item } from '../../models';
-import { api } from '../../services/api';
-import { useFavorites } from '../../services/hooks/useFavorites';
-import { useGetData } from '../../services/hooks/useGetData';
-import { useDataStore } from '../../services/stores/dataStore';
+import { NavigationProp } from '@react-navigation/native';
+
+import { GridList, Input, ScreenScrollContainer, Title } from '~/components';
+import { Item } from '~/models';
+import { useGetData } from '~/services/hooks/useGetData';
 
 type SearchProps = {
   navigation: NavigationProp<any, any>;
@@ -52,7 +44,7 @@ const Search: React.FC<SearchProps> = ({ navigation }) => {
         onChangeText={setQuery}
         marginBottom={24}
       />
-      <GridList data={results} type="search" />
+      <GridList data={results} type="search" loading={loading} />
     </ScreenScrollContainer>
   );
 };

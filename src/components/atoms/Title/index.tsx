@@ -1,6 +1,6 @@
 import React, { CSSProperties } from 'react';
-import { Text } from 'react-native';
-import { theme } from '../../../styles/theme';
+
+import { theme } from '~/styles/theme';
 import { TitleText } from './styles';
 
 type TitleProps = {

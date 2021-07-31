@@ -1,5 +1,5 @@
-import { Item, ItemType } from '../../models';
-import { api } from '../api';
+import { Item, ItemType } from '~/models';
+import { api } from '~/services/api';
 
 export const useGetData = () => {
   const getFilms = async (): Promise<Item[] | Error> => {

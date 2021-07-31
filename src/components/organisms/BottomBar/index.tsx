@@ -1,11 +1,10 @@
 import React from 'react';
-
 import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
-import { Text, TouchableOpacity, View } from 'react-native';
-import { BarItem, BottomBarContainer } from './styles';
-import { Title } from '../../atoms/Title';
 import { Ionicons } from '@expo/vector-icons';
-import { theme } from '../../../styles/theme';
+import { useTheme } from 'styled-components';
+
+import { Title } from '~/components/atoms';
+import { BarItem, BottomBarContainer } from './styles';
 
 const routeIcons: {
   [key: string]: React.ComponentProps<typeof Ionicons>['name'];
@@ -21,6 +20,8 @@ export const BottomBar: React.FC<BottomTabBarProps> = ({
   navigation,
 }) => {
   const focusedOptions = descriptors[state.routes[state.index].key].options;
+
+  const theme = useTheme();
 
   if (focusedOptions.tabBarVisible === false) {
     return null;

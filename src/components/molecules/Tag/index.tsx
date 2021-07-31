@@ -1,5 +1,6 @@
 import React from 'react';
-import { Title } from '../../atoms/Title';
+
+import { Title } from '~/components/atoms';
 import { TagContainer } from './styles';
 
 type TagProps = {

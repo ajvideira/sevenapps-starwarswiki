@@ -1,11 +1,14 @@
 import React from 'react';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
+import { useTheme } from 'styled-components';
+
 import { GoBackContainer } from './styles';
-import { theme } from '../../../styles/theme';
 
 export const GoBack = () => {
   const navigation = useNavigation();
+  const theme = useTheme();
+
   return (
     <GoBackContainer onPress={() => navigation.goBack()}>
       <Ionicons

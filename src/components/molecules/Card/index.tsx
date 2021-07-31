@@ -1,7 +1,8 @@
-import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { Item } from '../../../models';
-import { useDataStore } from '../../../services/stores/dataStore';
+import { useNavigation } from '@react-navigation/native';
+
+import { Item } from '~/models';
+import { useDataStore } from '~/services/stores/dataStore';
 import { CardContainer, CardImage } from './styles';
 
 const sizes: { [key: string]: { width: number; height: number } } = {
@@ -20,7 +21,7 @@ type CardProps = {
   size?: keyof typeof sizes;
 };
 
-const Card: React.FC<CardProps> = ({ item, size }) => {
+export const Card: React.FC<CardProps> = ({ item, size }) => {
   const navigation = useNavigation();
   const { setSelectedData } = useDataStore();
 
@@ -35,5 +36,3 @@ const Card: React.FC<CardProps> = ({ item, size }) => {
     </CardContainer>
   );
 };
-
-export default Card;

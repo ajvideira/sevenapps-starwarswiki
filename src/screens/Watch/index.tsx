@@ -1,10 +1,9 @@
-import React, { useMemo } from 'react';
-import { Container } from '../../components/atoms/Container';
+import React, { useCallback, useMemo, useState } from 'react';
 import YoutubePlayer from 'react-native-youtube-iframe';
 import { useTheme } from 'styled-components';
-import { useState } from 'react';
-import { useDataStore } from '../../services/stores/dataStore';
-import { useCallback } from 'react';
+
+import { Container, GoBack } from '~/components';
+import { useDataStore } from '~/services/stores/dataStore';
 
 const Watch: React.FC = () => {
   const theme = useTheme();
@@ -31,6 +30,7 @@ const Watch: React.FC = () => {
         videoId={youtubeId}
         onChangeState={onChangeState}
       />
+      <GoBack />
     </Container>
   );
 };

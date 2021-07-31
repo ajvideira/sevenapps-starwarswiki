@@ -1,18 +1,16 @@
-import React from 'react';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Alert } from 'react-native';
 
 import {
+  Card,
+  CardList,
   Container,
+  Hero,
+  Loader,
   ScreenScrollContainer,
-} from '../../components/atoms/Container';
-import { Loader } from '../../components/atoms/Loader';
-import Card from '../../components/molecules/Card';
-import { CardList } from '../../components/organisms/CardList';
-import { Hero } from '../../components/organisms/Hero';
-import { Item, ItemType } from '../../models';
-import { useGetData } from '../../services/hooks/useGetData';
+} from '~/components';
+import { Item } from '~/models';
+import { useGetData } from '~/services/hooks/useGetData';
 
 export default function Home() {
   const { getFilms, getCharacters } = useGetData();

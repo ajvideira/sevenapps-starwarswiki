@@ -1,6 +1,7 @@
 import { CSSProperties } from 'react';
 import styled, { css } from 'styled-components/native';
-import { theme } from '../../../styles/theme';
+
+import { theme } from '~/styles/theme';
 
 type TitleTextProps = {
   color?: keyof typeof theme.colors;

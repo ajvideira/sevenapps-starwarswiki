@@ -1,13 +1,12 @@
 import React from 'react';
-import { Dimensions, FlatList } from 'react-native';
-import { Item } from '../../../models';
-import { Container } from '../../atoms/Container';
-import { Title } from '../../atoms/Title';
-import Card from '../../molecules/Card';
-import { NoDataImage, SeparatorView } from './styles';
+import { FlatList } from 'react-native';
 
-import emptyResultSearchImage from '../../../../assets/empty-result-search.png';
-import emptyFavorites from '../../../../assets/empty-favorites.png';
+import { Item } from '~/models';
+import { Container, Title } from '~/components/atoms';
+import { Card } from '~/components/molecules';
+import { NoDataImage, SeparatorView } from './styles';
+import emptyResultSearchImage from '~/assets/empty-result-search.png';
+import emptyFavorites from '~/assets/empty-favorites.png';
 
 type GridListProps = {
   data: Item[];
