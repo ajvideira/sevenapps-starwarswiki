@@ -24,8 +24,8 @@ export const HeroGradient = styled(LinearGradient)`
 export const ButtonsView = styled.View`
   width: 100%;
   flex-direction: row;
-  align-items: baseline;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
   margin-top: ${({ theme }) => theme.metrics.px(12)}px;
 `;
 

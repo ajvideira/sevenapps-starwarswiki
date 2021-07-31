@@ -8,6 +8,7 @@ import Favorites from '../screens/Favorites';
 import Search from '../screens/Search';
 
 import { BottomBar } from '../components/organisms/BottomBar';
+import Watch from '../screens/Watch';
 
 const BottomRoute = () => {
   const Tab = createBottomTabNavigator();
@@ -37,6 +38,7 @@ const Routes = () => {
       <Stack.Navigator headerMode="none">
         <Stack.Screen name="Home" component={BottomRoute} />
         <Stack.Screen name="Detail" component={Detail} />
+        <Stack.Screen name="Watch" component={Watch} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -12,4 +12,4 @@ const px = (valuePx: number) => {
   return screenPixel;
 };
 
-export const metrics = { px };
+export const metrics = { px, width };

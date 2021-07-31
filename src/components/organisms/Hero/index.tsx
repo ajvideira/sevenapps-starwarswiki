@@ -3,8 +3,9 @@ import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { Alert } from 'react-native';
-import { Item } from '../../../models';
+import { Item, ItemType } from '../../../models';
 import { useFavorites } from '../../../services/hooks/useFavorites';
+import { useDataStore } from '../../../services/stores/dataStore';
 import { colors } from '../../../styles/colors';
 import { Logo } from '../../atoms/Logo';
 import { Title } from '../../atoms/Title';
@@ -30,6 +31,7 @@ export const Hero: React.FC<HeroProps> = ({ item, onDetail = false }) => {
   const [isFavorite, setIsFavorite] = useState(false);
   const [showFavoriteStateModal, setShowFavoriteStateModal] = useState('');
   const navigation = useNavigation();
+  const { setSelectedData } = useDataStore();
 
   const verifyFavorite = async () => {
     const favorites = await getFavorites();
@@ -72,6 +74,12 @@ export const Hero: React.FC<HeroProps> = ({ item, onDetail = false }) => {
     closeFavoriteModal();
   }
 
+  function handlePlayVideo() {
+    console.log('chegou aqui');
+    setSelectedData(item);
+    navigation.navigate('Watch');
+  }
+
   return (
     <HeroContainer>
       <HeroImageBackground
@@ -87,22 +95,28 @@ export const Hero: React.FC<HeroProps> = ({ item, onDetail = false }) => {
           </Title>
           <Title size={18}>{item.subtitle}</Title>
           <ButtonsView>
-            <IconButton
-              onPress={isFavorite ? handleRemoveFavorite : handleAddFavorite}
-              iconName={
-                isFavorite ? 'remove-circle-outline' : 'add-circle-outline'
-              }
-              label={isFavorite ? 'Rem. Favoritos' : 'Add. Favoritos'}
-            />
-
-            <PlayButton />
-
-            {!onDetail && (
+            <ButtonItemView align="flex-start">
               <IconButton
-                iconName="information-circle-outline"
-                label="Saiba mais"
+                onPress={isFavorite ? handleRemoveFavorite : handleAddFavorite}
+                iconName={
+                  isFavorite ? 'remove-circle-outline' : 'add-circle-outline'
+                }
+                label={isFavorite ? 'Rem. Favoritos' : 'Add. Favoritos'}
               />
-            )}
+            </ButtonItemView>
+            <ButtonItemView>
+              {item.type === ItemType.FILM && (
+                <PlayButton onPress={handlePlayVideo} />
+              )}
+            </ButtonItemView>
+            <ButtonItemView align="flex-end">
+              {!onDetail && (
+                <IconButton
+                  iconName="information-circle-outline"
+                  label="Saiba mais"
+                />
+              )}
+            </ButtonItemView>
           </ButtonsView>
         </HeroGradient>
       </HeroImageBackground>
